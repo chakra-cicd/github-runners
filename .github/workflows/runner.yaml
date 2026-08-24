@@ -13,3 +13,6 @@ jobs:
 
      - name: Get terrafrom #Using resuable plugin/actions
        uses: hashicorp/setup-terraform@v4
+
+     - name: get version
+       run: terraform --version  
