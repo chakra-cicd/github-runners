@@ -10,3 +10,6 @@ jobs:
 
      - name: list files
        run: ls -ltr
+
+     - name: Get terrafrom #Using resuable plugin/actions
+       uses: hashicorp/setup-terraform@v4
