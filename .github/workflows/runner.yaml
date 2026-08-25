@@ -11,4 +11,9 @@ jobs:                    # jobs/stages
 
   - name: list files
     run: ls -l
+  
+  - name: setup terraform
+    uses: hashicorp/setup-terraform@v4
+
+  
     
