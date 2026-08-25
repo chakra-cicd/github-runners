@@ -8,12 +8,12 @@ variable "environment" {
 
 variable "zone_name" {
   type        = string
-  default     = "chakra86.shop"
+  default     = "chakra86.store"
   description = "description"
 }
 
 variable "zone_id" {
   type        = string
-  default     = "Z01570372XTUEJNI70A9H"
+  default     = "Z02261422B2DDXKRO1N94"
   description = "description"
 }

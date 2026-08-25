@@ -8,15 +8,16 @@ jobs:                    # jobs/stages
   steps:                 # tasks inside the job
   - name: git clone
     uses: actions/checkout@v7
-
-  - name: list files
-    run: ls -l
+  
+  ## Multiline comment ctrl+/
+  # - name: list files
+  #   run: ls -l
   
   - name: setup terraform
     uses: hashicorp/setup-terraform@v4
 
-  - name: check tf version
-    run: terraform --version
+  # - name: check tf version
+  #   run: terraform --version
 
   - name: Configure AWS Credentials
     uses: aws-actions/configure-aws-credentials@v6.2.3
@@ -24,7 +25,14 @@ jobs:                    # jobs/stages
      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
      aws-region: us-east-1
+  
+  # - name: list s3 buckets
+  #   run: aws s3 ls
+  - name: terraform init
+    run: terraform init
 
-  - name: list s3 buckets
-    run: aws s3 ls
-    
+  - name: terraform plan
+    run: terraform plan
+
+  - name: terrafrom apply
+    run: terraform apply --auto-approve
