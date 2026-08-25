@@ -3,6 +3,7 @@ resource "aws_instance" "runner" {
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0ffed07e6d5191e37" #replace your Subnet
+  associate_public_ip_address = true
 
   # need more for terraform
   root_block_device {
