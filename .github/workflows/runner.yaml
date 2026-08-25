@@ -15,5 +15,8 @@ jobs:                    # jobs/stages
   - name: setup terraform
     uses: hashicorp/setup-terraform@v4
 
+  - name: check tf version
+    run: terraform --version
+
   
     
