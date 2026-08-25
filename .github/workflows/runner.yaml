@@ -1,28 +1,14 @@
-name: create runner
-on: [ workflow_dispatch ]
+name: deploy runner  # name of the workflow
+on: [workflow_dispatch]  # event
 
-jobs:
- create-runner:
-  runs-on: ubuntu-latest
-  steps:
-     - name: Get code #Using reusable plugin/actions
-       uses: actions/checkout@v6
+jobs:                    # jobs/stages
+ deploy-runner:          # job name, workflow can run multiple jobs parallelly
+  runs-on: ubuntu-latest # agent node
 
-     - name: list files
-       run: ls -ltr
+  steps:                 # tasks inside the job
+  - name: git clone
+    uses: actions/checkout@v7
 
-     - name: Get terrafrom #Using resuable plugin/actions
-       uses: hashicorp/setup-terraform@v4
-
-     - name: get version
-       run: terraform --version  
-
-     - name: Configure AWS Credentials
-       uses: aws-actions/configure-aws-credentials@v6.2.3
-       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-     - name: List s3 buckets
-       run: aws s3 ls
+  - name: list files
+    run: ls -l
+    
